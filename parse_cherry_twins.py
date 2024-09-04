@@ -19,7 +19,7 @@ def crab_pic(df_pd_main):
             divs = soup.find_all('div', class_='slide-img product-zoomable mfp-Images')
             img_srcs = [div.find('img')['src'] for div in divs if div.find('img')]
             print(img_srcs)
-            os.makedirs(df_pd_main.iloc[i]['名稱'], exist_ok=True)
+            os.makedirs(df_pd_main.iloc[i]['名稱'].strip(), exist_ok=True)
             for img_i, img_src in enumerate(img_srcs):
                 img_data = requests.get(img_src).content
                 img_file = os.path.join(df_pd_main.iloc[i]['名稱'], f"image_{img_i+1}.jpeg")
