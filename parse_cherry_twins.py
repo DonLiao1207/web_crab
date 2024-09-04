@@ -4,13 +4,18 @@ import requests
 import os
 df_pd = pd.read_excel(r'/home/sram-admin/workspace/web_crab/0902.xlsx')
 df_tb = pd.read_excel(r'/home/sram-admin/workspace/web_crab/0902.xlsx', sheet_name=1)
-df_alt = pd.read_excel(r'/home/sram-admin/workspace/web_crab/0902.xlsx', sheet_name=2)
+df_alt = pd.read_excel(r'/home/sram-admin/workspace/web_crab/short_description.xlsx')
 
 df_dict = {"名稱":[], "圖片":[]}
 
 df_pd_main = df_pd[df_pd['類型'] == "variable"]
 
 def crab_pic(df_pd_main):
+    '''
+    downloading the pictures
+    :param df_pd_main: dataframe
+    :return: None
+    '''
     for i in range(len(df_pd_main)):
         url = df_pd_main.iloc[i]['圖片']
         if 'wababewa' in url:
@@ -27,4 +32,4 @@ def crab_pic(df_pd_main):
                     handler.write(img_data)
                 print(f"下載完成: {img_file}")
 
-crab_pic(df_pd_main)
+# crab_pic(df_pd_main)
