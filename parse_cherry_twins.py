@@ -32,4 +32,5 @@ def crab_pic(df_pd_main):
                     handler.write(img_data)
                 print(f"下載完成: {img_file}")
 
+
 # crab_pic(df_pd_main)
